@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>RadioShack | Editar proveedor</title>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="formhead">Editar proveedor</h1>
+        <h:form enctype='multipart/form-data' prependId="false">
+            <div class="form-group">
+                <label for="formInputRFC">RFC</label>
+                <input type="text" class="form-control" id="formInputRFC"
+                	jsf:value="#{proveedor.rfc}" />
+            </div>
+            <div class="form-group">
+                <label for="formInputNom">Nombre</label>
+                <input type="text" class="form-control" id="formInputNom"
+                	jsf:value="#{proveedor.nombre}" />
+            </div>
+            <div class="form-group">
+                <label for="formInputApP">Apellido paterno</label>
+                <input type="text" class="form-control" id="formInputApP"
+                	jsf:value="#{proveedor.apellidoP}" />
+            </div>
+            <div class="form-group">
+                <label for="formInputApM">Apellido Materno</label>
+                <input type="text" class="form-control" id="formInputApM"
+                	jsf:value="#{proveedor.apellidoM}" />
+            </div>
+            <div class="form-group">
+                <label for="formInputTel">Teléfono</label>
+                <input type="number" class="form-control" id="formInputTel"
+                	jsf:value="#{proveedor.telefono}" />
+            </div>
+            <div class="form-group">
+                <label for="formInputCoE">Correo</label>
+                <input type="email" class="form-control" id="formInputCoE"
+                	jsf:value="#{proveedor.correoE}" />
+            </div>
+            <div class="form-group">
+                <label for="inputDireccion">Dirección</label>
+                <h:selectOneMenu class="form-control"
+					value="#{proveedor.idDireccion}">
+					<f:selectItems value="#{direccionBean.listaNombreDireccion}"
+						var="direccion" itemValue="#{direccion.idDireccion}"
+						itemLabel="#{direccion.calle}, #{direccion.numero}, #{direccion.colonia}, #{direccion.codigoP}, #{direccion.ciudad}, #{direccion.entidadF}"></f:selectItems>
+				</h:selectOneMenu>
+            </div>
+            <div class="form-group row">
+				<h:commandButton class="btn btn-primary"
+					action="#{proveedorBean.actualizar(proveedor)}" value="Actualizar"></h:commandButton>
+			</div>
+        </h:form>
+        <div class="exit">
+            <button type="submit" onclick="window.location='allProveedores.xhtml'">Volver</button>
+        </div>
+    </div>
+</body>
+</html>

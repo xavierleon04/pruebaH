@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Pruebas | Catálogo Productos</title>
+	<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css"/>
+</head>
+<body>
+	<h:form class="form-inline">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="../dashboard.xhtml">Panel administrativo</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="allProducts.xhtml">Productos<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <h:commandLink class="nav-link"
+			action="#{productoBean.nuevo()}" value="Agregar Producto"></h:commandLink>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nombre Usuario
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <h:form class="form-inline">
+						<h:commandLink class="dropdown-item"
+							action="#{usuarioBean.cerrar}" value="Cerrar sesión"></h:commandLink>
+					</h:form>
+        </div>
+      </li>
+    <li>
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Buscar"/>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </li>
+    </ul>
+  </div>
+</nav>
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Descripción</th>
+					<th scope="col">SKU</th>
+					<th scope="col">Precio Compra</th>
+					<th scope="col">Categoría</th>
+					<th scope="col">Imagen</th>
+					<th scope="col" colspan="2">Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${productoBean.listaProductos}" var="producto">
+					<tr>
+						<th scope="row">${producto.idProducto}</th>
+						<td>${producto.descripcion}</td>
+						<td>${producto.sku}</td>
+						<td>${producto.precioCompra}</td>
+						<td>${producto.idCategoria}</td>
+						<td><img src="../resources/img/${producto.imagen}"></img></td>
+						<td><h:commandButton class="btn btn-primary"
+							action="#{productoBean.editar(producto.idProducto)}"
+							value="Editar"></h:commandButton></td>
+						<td><h:commandButton class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar?')"
+									action="#{productoBean.eliminar(producto.idProducto)}"
+									value="Eliminar"></h:commandButton></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+	</h:form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

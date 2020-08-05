@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://java.sun.com/jsf/html"
+>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>RadioShack | Iniciar sesión</title>
+<link rel="stylesheet" href="resources/css/style.css" />
+</head>
+<body id="bodyLogin">
+	<div class="container">
+		<div class="rowlogin">
+			<h:form >
+				<h2>Iniciar sesión</h2>
+				<div class="inputEmail">
+					<label for="text">Usuario</label> 
+					<input type="text" jsf:value="#{usuarioBean.usuario}" name="email" required="true"/>
+				</div>
+				<div class="inputPassword">
+					<label for="password">Contraseña</label> 
+					<input type="password" jsf:value="#{usuarioBean.contrasena}" name="password" required="true"/>
+				</div>
+				<br></br>
+				<div>
+					<h:commandButton action="#{usuarioBean.validar}"
+						value="Entrar"></h:commandButton>
+				</div>
+			</h:form>
+			<br></br>
+			<button type="submit" onclick="window.location='index.xhtml'">Regresar</button>
+		</div>
+	</div>
+</body>
+</html>

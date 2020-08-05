@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>RadioShack | Catálogo Clientes</title>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../dashboard.xhtml">Panel administrativo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="allClientes.xhtml">Clientes<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addClientes.xhtml">Agregar Cliente</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nombre Usuario
+        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../login.xhtml">Cerrar sesión</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar Cliente" aria-label="Buscar" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+    <h:form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">RFC</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col" colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<c:forEach items="${clienteBean.listaClientes}" var="cliente">
+                	<tr>
+                    	<th scope="row">${cliente.idCliente}</th>
+                    	<td>${cliente.rfc}</td>
+                    	<td>${cliente.nombre}</td>
+                    	<td>${cliente.apellidoP}</td>
+                    	<td>${cliente.apellidoM}</td>
+                    	<td>${cliente.telefono}</td>
+                    	<td>${cliente.correoE}</td>
+                    	<td>${cliente.idDireccion}</td>
+                    	<td>${cliente.idUsuario}</td>
+                    	<td><h:commandButton class="btn btn-primary"
+							action="#{clienteBean.editar(cliente.idCliente)}"
+							value="Editar"></h:commandButton></td>
+                    	<td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                	</tr>
+				</c:forEach>
+            </tbody>
+        </table>
+    </h:form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

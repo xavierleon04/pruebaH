@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>RadioShack | Agregar cliente</title>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="formhead">Agregar cliente</h1>
+        <form>
+            <div class="form-group">
+                <label for="formInput">RFC</label>
+                <input type="text" class="form-control" id="formInput" placeholder="Ingresa el nombre." />
+            </div>
+            <div class="form-group">
+                <label for="formInput">Nombre</label>
+                <input type="text" class="form-control" id="formInput" placeholder="Ingresa el nombre." />
+            </div>
+            <div class="form-group">
+                <label for="formInput">Apellido paterno</label>
+                <input type="text" class="form-control" id="formInput" placeholder="Ingresa el nombre." />
+            </div>
+            <div class="form-group">
+                <label for="formInput">Apellido Materno</label>
+                <input type="text" class="form-control" id="formInput" placeholder="Ingresa el nombre." />
+            </div>
+            <div class="form-group">
+                <label for="formInputNumber">Teléfono</label>
+                <input type="number" class="form-control" id="formInputNumber" placeholder="Ej. 271-152-24-32" />
+            </div>
+            <div class="form-group">
+                <label for="formInput">Correo</label>
+                <input type="email" class="form-control" id="formInput" placeholder="Ingresa el nombre." />
+            </div>
+            <div class="form-group">
+                <label for="inputCategory">Usuario</label>
+                <select id="inputCategory" class="form-control">
+					<option>Selecciona</option>
+					<option>Usuario 1</option>
+                    <option>Usuario 2</option>
+                    <option>Usuario 3</option>
+					<option>Usuario 4</option>
+				</select>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDireccion">Dirección</label>
+                <select id="inputDireccion" class="form-control">
+					<option>Calle 1 av 5 col Estrellita</option>
+					<option>Calle 9 av 1 col Centro</option>
+					<option>Calle 14 av 8 col Filtros</option>
+				</select>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        </form>
+        <div class="exit">
+            <button type="submit" onclick="window.location='allClientes.xhtml'">Volver</button>
+        </div>
+    </div>
+</body>
+
+</html>

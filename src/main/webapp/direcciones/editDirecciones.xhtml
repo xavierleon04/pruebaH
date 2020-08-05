@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>RadioShack | Editar dirección</title>
+<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css"/>
+</head>
+<body>
+	<div class="container">
+	<h1 class="formhead">Editar dirección</h1>
+		<h:form enctype='multipart/form-data' prependId="false">
+			<div class="form-group">
+				<label for="formInputSKU">Calle</label> 
+				<input type="text" class="form-control" id="formInputCal"
+					jsf:value="#{direccion.calle}"/>
+			</div>
+			<div class="form-group">
+				<label for="formInputDes">Número</label> 
+				<input type="text" class="form-control" id="formInputNum"
+					jsf:value="#{direccion.numero}"/>
+			</div>
+			<div class="form-group">
+				<label for="formInputPrC">Colonia</label> 
+				<input type="text" class="form-control" id="formInputCol"
+					jsf:value="#{direccion.colonia}"/>
+			</div>
+			<div class="form-group">
+				<label for="formInputPrV">Código Postal</label> 
+				<input type="text" class="form-control" id="formInputCP"
+					jsf:value="#{direccion.codigoP}"/>
+			</div>
+			<div class="form-group">
+				<label for="formInputExis">Ciudad</label> 
+				<input type="text" class="form-control" id="formInputCiu"
+					jsf:value="#{direccion.ciudad}"/>
+			</div>
+			<div class="form-group">
+				<label for="formInputExis">Entidad Federal</label> 
+				<input type="text" class="form-control" id="formInputEnt"
+					jsf:value="#{direccion.entidadF}"/>
+			</div>
+			<div class="form-group row">
+				<h:commandButton class="btn btn-primary"
+					action="#{direccionBean.actualizar(direccion)}" value="Actualizar"></h:commandButton>
+			</div>
+		</h:form>
+		<div class="exit">
+			<button type="submit" onclick="window.location='allDirecciones.xhtml'">Volver</button>
+		</div>
+	</div>
+</body>
+</html>
